@@ -301,19 +301,6 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
-            {[
-              ["24h", "prototip i pare"],
-              ["100%", "responsive"],
-              ["2", "projekte reale"]
-            ].map(([value, label]) => (
-              <div key={label} className="border border-line bg-white/75 p-4 backdrop-blur">
-                <p className="text-2xl font-black text-ink">{value}</p>
-                <p className="mt-1 text-xs font-bold uppercase text-moss">{label}</p>
-              </div>
-            ))}
-          </div>
-
         </div>
 
         <div className="hidden lg:block">
