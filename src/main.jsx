@@ -785,13 +785,7 @@ function Testimonials() {
 }
 
 function ContactSection() {
-  const [showWhatsAppOptions, setShowWhatsAppOptions] = useState(false);
   const contactItems = [
-    {
-      name: "WhatsApp",
-      text: "Bisedo direkt per projektin",
-      icon: "https://cdn.simpleicons.org/whatsapp/25D366"
-    },
     {
       name: "Gmail",
       text: "Dergo kerkesen me email",
@@ -817,45 +811,17 @@ function ContactSection() {
 
         <div className="contact-icons-wrap mx-auto mt-12 flex max-w-3xl items-center justify-center gap-8 sm:gap-12">
           {contactItems.map((item, index) => (
-            <div key={item.name} className="relative">
-              {item.name === "WhatsApp" ? (
-                <button
-                  type="button"
-                  onClick={() => setShowWhatsAppOptions((value) => !value)}
-                  className="contact-orbit"
-                  style={{ animationDelay: `${index * 180}ms` }}
-                  aria-label="WhatsApp contacts"
-                >
-                  <img src={item.icon} alt={`${item.name} logo`} className="contact-logo" />
-                </button>
-              ) : (
-                <a
-                  href={item.href || "#contact"}
-                  target={item.href ? "_blank" : undefined}
-                  rel={item.href ? "noreferrer" : undefined}
-                  className="contact-orbit"
-                  style={{ animationDelay: `${index * 180}ms` }}
-                >
-                  {item.icon ? (
-                    <img src={item.icon} alt={`${item.name} logo`} className="contact-logo" />
-                  ) : (
-                    <BrandLogo name={item.name} />
-                  )}
-                  <span className="sr-only">{item.name}</span>
-                </a>
-              )}
-
-              {item.name === "WhatsApp" && showWhatsAppOptions && (
-                <div className="whatsapp-options">
-                  <a href="https://wa.me/381628991979" target="_blank" rel="noreferrer">
-                    +381 62 899 1979
-                  </a>
-                  <a href="https://wa.me/38975465888" target="_blank" rel="noreferrer">
-                    +389 75 465 888
-                  </a>
-                </div>
-              )}
-            </div>
+            <a
+              key={item.name}
+              href={item.href}
+              target={item.href.startsWith("http") ? "_blank" : undefined}
+              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+              className="contact-orbit"
+              style={{ animationDelay: `${index * 180}ms` }}
+            >
+              <BrandLogo name={item.name} />
+              <span className="sr-only">{item.name}</span>
+            </a>
           ))}
         </div>
       </div>
@@ -927,15 +893,7 @@ function App() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <a href="https://wa.me/381628991979" target="_blank" rel="noreferrer" className="footer-contact-link">
-              <span>WhatsApp 1</span>
-              <strong>+381 62 899 1979</strong>
-            </a>
-            <a href="https://wa.me/38975465888" target="_blank" rel="noreferrer" className="footer-contact-link">
-              <span>WhatsApp 2</span>
-              <strong>+389 75 465 888</strong>
-            </a>
+          <div className="grid gap-4 sm:grid-cols-2">
             <a href="mailto:wwebengine@gmail.com" className="footer-contact-link">
               <span>Gmail</span>
               <strong>wwebengine@gmail.com</strong>
