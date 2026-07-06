@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import {
   ArrowLeft,
   ArrowRight,
+  ArrowUp,
   BadgeCheck,
   Blocks,
   CheckCircle2,
@@ -905,6 +906,9 @@ function App() {
           </div>
         </div>
       </footer>
+      <a href="#top" className="back-to-top" aria-label="Kthehu lart">
+        <ArrowUp size={22} />
+      </a>
     </>
   );
 }
